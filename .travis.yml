@@ -1,3 +1,8 @@
+sudo: required
+
+services:
+  - docker
+
 jobs:  
   include:
     - stage: backend
@@ -19,11 +24,14 @@ jobs:
         - npm test
 
     - stage: e2e
+      language: node_js
+      node_js:
+        - "lts/*"
       before_script:
         - docker-compose up --build
       script:
         - npm run e2e
-      
+
 addons:
   sauce_connect:
     username: pgobin
