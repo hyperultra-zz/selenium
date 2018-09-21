@@ -15,10 +15,15 @@ jobs:
         - cd ./ui
       install:
         - npm install
-      before_script:
-        - npm start
       script:
         - npm test
+
+    - stage: e2e
+      before_script:
+        - docker-compose up --build
+      script:
+        - npm run e2e
+      
 addons:
   sauce_connect:
     username: pgobin
