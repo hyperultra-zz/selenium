@@ -26,9 +26,7 @@ jobs:
       node_js:
         - "lts/*"
       before_script:
-        - cd ..
-        - pwd
-        - docker-compose up --build
+        - docker-compose up
       script:
         - npm run e2e
 
