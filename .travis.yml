@@ -22,4 +22,4 @@ jobs:
 addons:
   sauce_connect:
     username: pgobin
-    access_key: 2887ebb8-f09b-428f-9b3f-5c01132e0e27
+    access_key: "2887ebb8-f09b-428f-9b3f-5c01132e0e27"
