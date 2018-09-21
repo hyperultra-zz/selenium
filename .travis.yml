@@ -1,0 +1,25 @@
+jobs:  
+  include:
+    - stage: backend
+      language: python
+      python:
+        - "3.6"
+      script:
+        - pytest --ignore=integration_tests
+
+    - stage: frontend
+      language: node_js
+      node_js:
+        - "lts/*"
+      before_install:
+        - cd ./ui
+      install:
+        - npm install
+      before_script:
+        - npm start
+      script:
+        - npm test
+addons:
+  sauce_connect:
+    username: pgobin
+    access_key: 2887ebb8-f09b-428f-9b3f-5c01132e0e27
